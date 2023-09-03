@@ -2,11 +2,10 @@ library resolver;
 
 class Resolver extends ResolverRegistering {
   static Map<String, dynamic> registeredDependencies = {};
-  void register<T>(
-    FactoryRegistrant registrant, {
-    String name = "",
-    bool overide = false,
-  }) {
+  void register<T>(FactoryRegistrant registrant,
+      {String name = "",
+      bool overide = false,
+      ResolverScope scope = ResolverScope.provider}) {
     final _identity = identifier(T);
     final factory = registrant.call();
 
@@ -29,7 +28,7 @@ class Resolver extends ResolverRegistering {
   }
 }
 
-enum Scope { singleton, provider }
+enum ResolverScope { singleton, provider }
 
 abstract class Factory<T> {
   T? instance;
