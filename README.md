@@ -1,39 +1,55 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Resolver - (Currently under development, but its gonna be amazing, you will love it)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A Simplified Dependency Injector/Service Locator. Inspired by Resolver in Swift and Dagger in Android. Resolver is just simplifying how you add and resolve dependencies in your container. 
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## 🎖 Installing
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+```yaml
+dependencies:
+  resolver : ^1.0.0
+```
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### ⚡️ Import
 ```dart
-const like = 'sample';
+import 'package:resolver/resolver.dart';
+```
+
+## 🎮 How To Use
+
+#### Property inject
+```dart
+     @Resolve<Service>()
+     late Service service
+```
+
+#### Property inject
+```dart
+   var service = @Resolve<Service>().resolve
+```
+
+#### Constructor inject
+```dart
+   class Client{
+    Client(@Resolve<Service>() service){}
+   }
+```
+#### method inject
+```dart
+   class Client{
+    void method(@Resolve<Service>() service){}
+   }
+```
+
+
+#### Register dependency
+```dart
+  extension XResolver on Resolver {
+  void registerAll() {
+    register<A>(() => SingletonFactory(A()));
+    register<B>(() => ProviderFactory(B()));
+  }
+}
 ```
 
 ## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This package is currently under development, do not use in any production code, or use for testing, not fully tested, 
