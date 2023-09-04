@@ -1,6 +1,6 @@
 # Resolver - (Currently under development, but its gonna be amazing, you will love it)
 
-A Simplified Dependency Injector/Service Locator. Inspired by Resolver in Swift and Dagger in Android. Resolver is just simplifying how you add and resolve dependencies in your container. 
+A Simplified Dependency Injector/Service Locator. Inspired by Resolver in Swift and Dagger in Android. Resolver is just simplifying how you add and resolve dependencies in your container not replacing GetIt nor Injector. 
 
 ## 🎖 Installing
 
